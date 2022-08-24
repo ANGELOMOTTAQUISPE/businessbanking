@@ -8,18 +8,17 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
-@Document("movement")
+@Document("fee")
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Movement {
+public class Fee {
     @Id
-    private String idMovement;
-    private Double balance;
-    private Double movement;
-    private Account account;
-    private Credit credit;
-    private LocalDateTime movementDate ;
+    private String idFee;
+    private Double maintenanceCommission;
+    private Integer monthlyMovement;
+    private LocalDateTime date;
 }

@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: booking-microservice-prod
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8888

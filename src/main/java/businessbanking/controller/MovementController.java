@@ -20,11 +20,9 @@ public class MovementController {
     @Autowired
     private IMovementService service;
     @GetMapping
-    public ResponseEntity<Flux<Movement>> list(String documentnumber){
+    public ResponseEntity<Flux<Movement>> list(){
         logger.info("Inicio metodo list() de MovementController");
         Flux<Movement> lista = null;
-        Account account =  new Account();
-        Client client = new Client();
         try {
             lista = service.list();
         } catch (Exception e) {

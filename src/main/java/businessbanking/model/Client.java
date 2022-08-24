@@ -1,14 +1,15 @@
 package businessbanking.model;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import reactor.util.annotation.NonNull;
+import lombok.Builder;
 
 @Document("client")
+@Builder
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Client {
     @Id
     private String idClient;
