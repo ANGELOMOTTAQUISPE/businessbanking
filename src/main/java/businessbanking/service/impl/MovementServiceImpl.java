@@ -31,4 +31,10 @@ public class MovementServiceImpl implements IMovementService {
     public Mono<Movement> delete(String id) {
         return repo.findById(id).flatMap(r-> repo.delete(r).then(Mono.just(r)));
     }
+    public Flux<Movement> listmovementByAccount(String accountNumber) {
+        return repo.findByAccount(accountNumber);
+    }
+    public Flux<Movement> listmovementByCredit( String creditCardNumber) {
+        return repo.findByCredit(creditCardNumber);
+    }
 }

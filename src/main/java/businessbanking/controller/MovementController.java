@@ -1,7 +1,5 @@
 package businessbanking.controller;
 
-import businessbanking.model.Account;
-import businessbanking.model.Client;
 import businessbanking.model.Movement;
 import businessbanking.service.IMovementService;
 import org.slf4j.Logger;
@@ -83,5 +81,19 @@ public class MovementController {
             logger.info( "Fin metodo update() de MovementController");
         }
         return new ResponseEntity<Mono<Movement>>(p, HttpStatus.OK);
+    }
+    @GetMapping("/listMovementAccount/{accountNumber}")
+    public ResponseEntity<Flux<Movement>> listmovementByAccount(@PathVariable("accountNumber") String accountNumber){
+        logger.info("Inicio metodo listmovementByAccount() de MovementController");
+        Flux<Movement> movement = service.listmovementByAccount(accountNumber);
+
+        return new ResponseEntity<Flux<Movement>>(movement, HttpStatus.OK);
+    }
+    @GetMapping("/listMovementCredit/{creditNumber}")
+    public ResponseEntity<Flux<Movement>> listmovementByCredit(@PathVariable("creditNumber") String creditNumber){
+        logger.info("Inicio metodo listmovementByCredit() de MovementController");
+        Flux<Movement> movement = service.listmovementByCredit(creditNumber);
+
+        return new ResponseEntity<Flux<Movement>>(movement, HttpStatus.OK);
     }
 }
