@@ -1,6 +1,6 @@
 spring:
   application:
-    name: booking-microservice-prod
+    name: bank
   cloud:
     config:
       enabled: true
